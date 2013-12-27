@@ -1,8 +1,8 @@
 using System;
 
-namespace DynamicAppSettings
+namespace NinjaSettings
 {
-    public interface IAppSettingValueConverter
+    public interface ISettingValueConverter
     {
         bool CanConvert(Type type);
 

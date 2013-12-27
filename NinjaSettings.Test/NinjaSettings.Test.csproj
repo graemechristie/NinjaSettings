@@ -6,8 +6,8 @@
     <ProjectGuid>{33E6ADA8-164A-4634-9853-F4B913D9949B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DynamicAppSettings.Test</RootNamespace>
-    <AssemblyName>DynamicAppSettings.Test</AssemblyName>
+    <RootNamespace>NinjaSettings.Test</RootNamespace>
+    <AssemblyName>NinjaSettings.Test</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -62,7 +62,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DynamicAppSettings\DynamicAppSettings.csproj">
+    <ProjectReference Include="..\NinjaSettings\NinjaSettings.csproj">
       <Project>{b3767f91-a97b-47a4-9031-80c971c48bf2}</Project>
       <Name>DynamicAppSettings</Name>
     </ProjectReference>

@@ -1,8 +1,8 @@
 using System.Configuration;
 
-namespace DynamicAppSettings
+namespace NinjaSettings
 {
-    public class WebConfigAppSettingsRepository : IAppSettingsRepository
+    public class WebConfigAppSettingsRepository : ISettingsRepository
     {
         public string Get(string settingName)
         {

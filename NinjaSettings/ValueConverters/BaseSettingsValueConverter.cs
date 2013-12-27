@@ -1,8 +1,8 @@
 using System;
 
-namespace DynamicAppSettings.ValueConverters
+namespace NinjaSettings.ValueConverters
 {
-    public abstract class BaseAppSettingsValueConverter<TConvertTo> : IAppSettingValueConverter
+    public abstract class BaseSettingsValueConverter<TConvertTo> : ISettingValueConverter
     {
         public bool CanConvert(Type type)
         {

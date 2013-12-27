@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using DynamicAppSettings.ValueConverters;
+using NinjaSettings.ValueConverters;
 using NSubstitute;
 using NUnit.Framework;
 using Shouldly;
 
-namespace DynamicAppSettings.Test
+namespace NinjaSettings.Test
 {
     [TestFixture]
     public class AppSettingsTests
@@ -38,13 +38,13 @@ namespace DynamicAppSettings.Test
 
         }
 
-        private IAppSettingsRepository _fakeRepository;
+        private ISettingsRepository _fakeRepository;
 
 
         [SetUp]
         public void Setup()
         {
-            _fakeRepository = Substitute.For<IAppSettingsRepository>();
+            _fakeRepository = Substitute.For<ISettingsRepository>();
         }
 
         [Test]
@@ -52,7 +52,7 @@ namespace DynamicAppSettings.Test
         {
             _fakeRepository.Get("SomeString").Returns("SomeStringValue");
 
-            var settings = new DynamicAppSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
 
             settings.SomeString.ShouldBe("SomeStringValue");
         }
@@ -62,7 +62,7 @@ namespace DynamicAppSettings.Test
         {
             _fakeRepository.Get("SomeInteger").Returns("1");
 
-            var settings = new DynamicAppSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
 
             settings.SomeInteger.ShouldBe(1);
         }
@@ -72,7 +72,7 @@ namespace DynamicAppSettings.Test
         {
             _fakeRepository.Get("SomeDecimal").Returns("1.23");
 
-            var settings = new DynamicAppSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
 
             settings.SomeDecimal.ShouldBe(1.23M);
         }
@@ -86,8 +86,8 @@ namespace DynamicAppSettings.Test
             // so we supply one with the culture explicity set to AU.
             // This will be prefered over the default one.
             var cultureInfo = new CultureInfo("en-au", false);
-            var valueConverters = new IAppSettingValueConverter[] {new DateTimeValueConverter(cultureInfo)}; 
-            var settings = new DynamicAppSettings<ITestAppSettings>(_fakeRepository, valueConverters).AppSettings;
+            var valueConverters = new ISettingValueConverter[] {new DateTimeValueConverter(cultureInfo)}; 
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository, valueConverters).AppSettings;
 
             settings.SomeDate.ShouldBe(new DateTime(2013, 11, 12));
         }
@@ -97,7 +97,7 @@ namespace DynamicAppSettings.Test
         {
             _fakeRepository.Get("SomeTestEnum").Returns("Baz");
 
-            var settings = new DynamicAppSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
 
             settings.SomeTestEnum.ShouldBe(TestEnum.Baz);
         }
@@ -107,7 +107,7 @@ namespace DynamicAppSettings.Test
         {
             _fakeRepository.Get("SomeIntegerList").Returns("1,2,34,99,88");
 
-            var settings = new DynamicAppSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
 
             settings.SomeIntegerList.ShouldBe(new List<int>  {1,2,34,99,88 } );
         }
@@ -117,7 +117,7 @@ namespace DynamicAppSettings.Test
         {
             _fakeRepository.Get("SomeIntegerArray").Returns("1,2,34,99,88");
 
-            var settings = new DynamicAppSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
 
             settings.SomeIntegerArray.ShouldBe(new[] { 1, 2, 34, 99, 88 });
         }
@@ -127,7 +127,7 @@ namespace DynamicAppSettings.Test
         {
             _fakeRepository.Get("SomeStringList").Returns("foo,bar,baz, beep, bop");
 
-            var settings = new DynamicAppSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
 
             settings.SomeStringList.ShouldBe(new List<string>(new[] { "foo", "bar","baz", "beep", "bop" }));
         }

@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace DynamicAppSettings.ValueConverters
+namespace NinjaSettings.ValueConverters
 {
-    public class CommaDelimitedScalarValueConverter : IAppSettingValueConverter
+    public class CommaDelimitedScalarValueConverter : ISettingValueConverter
     {
         public bool CanConvert(Type type)
         {

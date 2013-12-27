@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
 
-namespace DynamicAppSettings.ValueConverters
+namespace NinjaSettings.ValueConverters
 {
-    public class ScalarValueConverter : IAppSettingValueConverter
+    public class ScalarValueConverter : ISettingValueConverter
     {
         public bool CanConvert(Type type)
         {

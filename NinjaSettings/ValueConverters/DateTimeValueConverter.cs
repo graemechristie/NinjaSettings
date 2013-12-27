@@ -1,10 +1,10 @@
 using System;
 using System.Globalization;
 
-namespace DynamicAppSettings.ValueConverters
+namespace NinjaSettings.ValueConverters
 {
     public class DateTimeValueConverter
-        : BaseAppSettingsValueConverter<DateTime>
+        : BaseSettingsValueConverter<DateTime>
     {
         private readonly DateTimeFormatInfo _dateTimeFormatInfo;
 
