@@ -48,7 +48,7 @@ Simply inject your app settings into your classes as a dependency on your interf
 ```C#
     public class MyService
     {
-        public readonly IAppSettings _appSettings;
+        private readonly IAppSettings _appSettings;
 
         public MyService(IAppSettings appSettings)
         {
