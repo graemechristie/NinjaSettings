@@ -52,7 +52,7 @@ namespace NinjaSettings.Test
         {
             _fakeRepository.Get("SomeString").Returns("SomeStringValue");
 
-            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
 
             settings.SomeString.ShouldBe("SomeStringValue");
         }
@@ -62,7 +62,7 @@ namespace NinjaSettings.Test
         {
             _fakeRepository.Get("SomeInteger").Returns("1");
 
-            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
 
             settings.SomeInteger.ShouldBe(1);
         }
@@ -72,7 +72,7 @@ namespace NinjaSettings.Test
         {
             _fakeRepository.Get("SomeDecimal").Returns("1.23");
 
-            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
 
             settings.SomeDecimal.ShouldBe(1.23M);
         }
@@ -87,7 +87,7 @@ namespace NinjaSettings.Test
             // This will be prefered over the default one.
             var cultureInfo = new CultureInfo("en-au", false);
             var valueConverters = new ISettingValueConverter[] {new DateTimeValueConverter(cultureInfo)}; 
-            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository, valueConverters).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository, valueConverters).Settings;
 
             settings.SomeDate.ShouldBe(new DateTime(2013, 11, 12));
         }
@@ -97,7 +97,7 @@ namespace NinjaSettings.Test
         {
             _fakeRepository.Get("SomeTestEnum").Returns("Baz");
 
-            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
 
             settings.SomeTestEnum.ShouldBe(TestEnum.Baz);
         }
@@ -107,7 +107,7 @@ namespace NinjaSettings.Test
         {
             _fakeRepository.Get("SomeIntegerList").Returns("1,2,34,99,88");
 
-            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
 
             settings.SomeIntegerList.ShouldBe(new List<int>  {1,2,34,99,88 } );
         }
@@ -117,7 +117,7 @@ namespace NinjaSettings.Test
         {
             _fakeRepository.Get("SomeIntegerArray").Returns("1,2,34,99,88");
 
-            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
 
             settings.SomeIntegerArray.ShouldBe(new[] { 1, 2, 34, 99, 88 });
         }
@@ -127,7 +127,7 @@ namespace NinjaSettings.Test
         {
             _fakeRepository.Get("SomeStringList").Returns("foo,bar,baz, beep, bop");
 
-            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).AppSettings;
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
 
             settings.SomeStringList.ShouldBe(new List<string>(new[] { "foo", "bar","baz", "beep", "bop" }));
         }

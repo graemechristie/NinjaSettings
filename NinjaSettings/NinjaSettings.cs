@@ -56,7 +56,7 @@ namespace NinjaSettings
             _settingValueConverters.AddRange(DefaultValueConverters);
         }
 
-        public TSettings AppSettings
+        public TSettings Settings
         {
             get
             {

@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@model IAppSettings
+
+<div class="jumbotron">
+    <h1>NinjaSettings Demo</h1>
+    <p class="lead">This page demonstrates the App Settings passed into the HomeController via Dependency Injection.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Some Integer List</h2>
+        <ul>
+            @foreach (var i in Model.SomeIntegerList)
+            {
+                <li>@i</li>
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Some Test Enum</h2>
+        <p>@Model.SomeTestEnum.ToString()</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Some Date Value</h2>
+        <p>@Model.SomeDateValue.ToString("D") was @((DateTime.Today - Model.SomeDateValue).Days) days ago</p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Some String Array</h2>
+        <ul>
+            @foreach (var s in Model.SomeStringArray)
+            {
+                <li>@s</li>
+            }
+        </ul>
+    </div>
+</div>
+
+

@@ -33,7 +33,7 @@ namespace NinjaSettings.ValueConverters
             if (convertToType.IsArray)
             {
                 var arrayInstance = Activator.CreateInstance(convertToType, values.Count());
-                var setValueMethod = convertToType.GetMethod("SetValue", new [] { typeof(object), typeParam });
+                var setValueMethod = convertToType.GetMethod("SetValue", new [] { typeof(object), typeof(Int32) });
                 var i = 0;
 
                 foreach (var v in values.Select(va=>va.Trim()))
