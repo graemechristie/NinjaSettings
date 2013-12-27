@@ -1,7 +1,5 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 
 namespace NinjaSettings.Example.Autofac
 {
@@ -12,4 +10,5 @@ namespace NinjaSettings.Example.Autofac
         DateTime SomeDateValue { get; } 
         string[] SomeStringArray { get;  }
     }
+
 }

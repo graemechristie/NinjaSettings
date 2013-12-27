@@ -1,12 +1,12 @@
 NinjaSettings
 ================
 
-Simple Dynamic Wrapper around the .NET web.config app settings that gives strongly typed access to app settings. Easily Mockable and extensible. 
+Simple Dynamic Wrapper around the .NET web.config app settings that gives strongly typed access to app settings. Easily mockable and extensible. 
 
 
 ## Quick Example 
 
-Add some ordinary old app settings to your web.config file
+Add some ordinary old app settings to your web.config file.
 
 ```xml
   <appSettings>
@@ -18,7 +18,7 @@ Add some ordinary old app settings to your web.config file
 
 ```
 
-Create an interface with property names matching the app settings keys, and the desired types you'd like the values converted to when you reference them in your application
+Create an interface with property names matching the app settings keys, and the desired types you'd like the values converted to when you reference them in your application.
 
 ```C#
  public interface IAppSettings
@@ -42,7 +42,7 @@ Register your interface with your favourite IOC container, using the NinjaSettin
 		}
 ```
 
-Simply inject your app settings into your classes as a dependency on your interface. Access your settings as a strongly typed object with full intellisense,
+Simply inject your app settings into your classes as a dependency on your interface. Access your settings as a strongly typed object with full intellisense.
 
 
 ```C#
