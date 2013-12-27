@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?> 
+<package>
+  <metadata>
+    <id>
+       DynamicAppSettings
+    </id>
+    <version>
+       1.0.0.0
+    </version>
+    <authors>
+       Graeme Christie
+    </authors>
+    <description>
+      A Simple Dynamic Wrapper around the .NET web.config app settings that gives strongly typed access to app settings. Easily Mockable and extensible.
+    </description>
+    <projectUrl>
+      https://github.com/graemechristie/DynamicAppSettings
+    </projectUrl>
+    <licenseUrl>
+      https://raw.github.com/graemechristie/DynamicAppSettings/master/LICENSE
+    </licenseUrl>
+    <tags>
+       asp.net, appsettings, dynamic
+    </tags>
+    <language>
+       en-US
+    </language>
+    <dependencies>
+      <dependency id="ImpromptuInterface" version="6.2.2" />
+    </dependencies>
+  </metadata>
+  <files>
+     <file src="DynamicAppSettings\bin\Release\DynamicAppSettings.dll" target="lib\NET40" />
+     <file src="DynamicAppSettings\bin\Release\DynamicAppSettings.pdb" target="lib\NET40" />
+     <file src="DynamicAppSettings\readme.txt" target="" />
+  </files>
+</package>
