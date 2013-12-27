@@ -65,3 +65,21 @@ Simply inject your app settings into your classes as a dependency on your interf
     } 
 ```
 
+No need for your web.config or the NinjaSettings wrapper for your tests. Just Mock up an instance of your interface and pass that in to your class under test.
+
+```C#
+    [Test]
+    public void GivenMyServiceDoesSomethingThenItShouldGoBeep()
+    {
+        var mockAppSettings = Substitute.For<IAppSettings>();
+        mockAppSettings.SomeStringArray.Returns(new[] {"foo", "bar", "baz"});
+
+        var classUnderTest = new MyService(mockAppSettings);
+
+        classUnderTest.DoSomeStuff();
+
+        Assert.IsTrue(classUnderTest.HasGoneBeep);
+    }
+```
+
+

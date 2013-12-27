@@ -131,8 +131,5 @@ namespace NinjaSettings.Test
 
             settings.SomeStringList.ShouldBe(new List<string>(new[] { "foo", "bar","baz", "beep", "bop" }));
         }
-
-
-
     }
 }
