@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>
-       DynamicAppSettings
+       NinjaSettings
     </id>
     <version>
        1.0.0.0
@@ -14,13 +14,13 @@
       A Simple Dynamic Wrapper around the .NET web.config app settings that gives strongly typed access to app settings. Easily Mockable and extensible.
     </description>
     <projectUrl>
-      https://github.com/graemechristie/DynamicAppSettings
+      https://github.com/graemechristie/NinjaSettings
     </projectUrl>
     <licenseUrl>
-      https://raw.github.com/graemechristie/DynamicAppSettings/master/LICENSE
+      https://raw.github.com/graemechristie/NinjaSettings/master/LICENSE
     </licenseUrl>
     <tags>
-       asp.net, appsettings, dynamic
+       asp.net, appsettings, dynamic. ninja
     </tags>
     <language>
        en-US
@@ -30,8 +30,8 @@
     </dependencies>
   </metadata>
   <files>
-     <file src="DynamicAppSettings\bin\Release\DynamicAppSettings.dll" target="lib\NET40" />
-     <file src="DynamicAppSettings\bin\Release\DynamicAppSettings.pdb" target="lib\NET40" />
-     <file src="DynamicAppSettings\readme.txt" target="" />
+     <file src="NinjaSettings\bin\Release\NinjaSettings.dll" target="lib\NET40" />
+     <file src="NinjaSettings\bin\Release\NinjaSettings.pdb" target="lib\NET40" />
+     <file src="NinjaSettings\readme.txt" target="" />
   </files>
 </package>
