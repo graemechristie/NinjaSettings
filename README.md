@@ -39,7 +39,7 @@ protected void Application_Start()
     var builder = new ContainerBuilder();
     builder.Register(c => new NinjaSettings<IAppSettings>().Settings)
         .As<IAppSettings>().SingleInstance();
-		}
+}
 ```
 
 Simply inject your app settings into your classes as a dependency on your interface. Access your settings as a strongly typed object with full intellisense.
@@ -84,7 +84,7 @@ public void GivenMyServiceDoesSomethingThenItShouldGoBeep()
 
 ## Ok, so whats this about being extensible
 
-The `NinjaSettings` wrapper can be extended to parse just about any type. Out of the box it handles, scalar values, Arrays or Lists of scalar values, Enum's and DateTimes. Just about any conversion from the original string can be handled by creating an implementing a simple value converter. 
+The `NinjaSettings` wrapper can be extended to parse just about any type. Out of the box it handles converting string settings to scalar values, collections of scalar values, `Enum`s and `DateTime`s. Just about any conversion from the original string can be handled by creating an implementing a simple value converter. 
 
 ```
 public interface ISettingValueConverter
@@ -95,7 +95,7 @@ public interface ISettingValueConverter
 }
 ```
 
-By default, `NinjaSettings` wraps the `AppSettings` section of the ASP.NET web.config, but can easily be used to wrap any key-value store (resx files for e.g.) by implementing the following super simple Interface.
+By default, `NinjaSettings` wraps the `<AppSettings>` section of the ASP.NET web.config file, but can easily be used to wrap any key-value store (resource (resx) files, cache entries, string dictionaries, look-up tables in databases) by implementing the following super simple Interface.
 
 ```
 public interface ISettingsRepository
