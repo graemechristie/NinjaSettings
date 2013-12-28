@@ -86,7 +86,7 @@ public void GivenMyServiceDoesSomethingThenItShouldGoBeep()
 
 The `NinjaSettings` wrapper can be extended to parse just about any type. Out of the box it handles converting string settings to scalar values, collections of scalar values, `Enum`s and `DateTime`s. Just about any conversion from the original string can be handled by creating an implementing a simple value converter. 
 
-```
+```C#
 public interface ISettingValueConverter
 {
     bool CanConvert(Type type);
@@ -97,14 +97,14 @@ public interface ISettingValueConverter
 
 By default, `NinjaSettings` wraps the `<AppSettings>` section of the ASP.NET web.config file, but can easily be used to wrap any key-value store (resource (resx) files, cache entries, string dictionaries, look-up tables in databases) by implementing the following super simple Interface.
 
-```
+```C#
 public interface ISettingsRepository
 {
     string Get(string settingName);
 }
 ```
 
-Just pass your `ISettingsRepository` and/or an `IEnumerable<ISettingValueConverter>` into the `NinjaSettings` constructor.
+To extend `NinjaSettings`, just pass your `ISettingsRepository` and/or an `IEnumerable<ISettingValueConverter>` into the `NinjaSettings` constructor.
 
 
 ## How do I get it
