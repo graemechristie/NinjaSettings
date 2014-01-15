@@ -18,6 +18,16 @@ namespace NinjaSettings.Test
             Baz = 3
         }
 
+        [Flags]
+        public enum TestFlagsEnum
+        {
+            None = 0,
+            One = 1,
+            Two = 2,
+            Four = 4,
+            Eight = 8
+        }
+
         public interface ITestAppSettings
         {
             string SomeString { get; }
@@ -34,7 +44,9 @@ namespace NinjaSettings.Test
 
             List<String> SomeStringList { get; }
 
-            TestEnum SomeTestEnum { get; }
+            TestEnum SomeTestEnum { get; }            
+            
+            TestFlagsEnum SomeTestFlagsEnum { get; }
 
         }
 
@@ -100,6 +112,16 @@ namespace NinjaSettings.Test
             var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
 
             settings.SomeTestEnum.ShouldBe(TestEnum.Baz);
+        }
+
+        [Test]
+        public void GivenMultipleEnumValueReturnsThatValueAsEnumFlags()
+        {
+            _fakeRepository.Get("SomeTestFlagsEnum").Returns("Two, Four");
+
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
+
+            settings.SomeTestFlagsEnum.ShouldBe(TestFlagsEnum.Two | TestFlagsEnum.Four );
         }
 
         [Test]
