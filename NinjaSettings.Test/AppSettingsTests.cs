@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Reflection;
 using NinjaSettings.ValueConverters;
 using NSubstitute;
 using NUnit.Framework;
@@ -28,6 +30,39 @@ namespace NinjaSettings.Test
             Eight = 8
         }
 
+        public class StringConvertibleComplexObject
+        {
+            public string LowerCase { get; set; }
+
+            public string UpperCase { get; set; }
+
+            public int CheckSum { get; set; }
+
+            public StringConvertibleComplexObject(string sourceString)
+            {
+                LowerCase = sourceString.ToLower();
+
+                UpperCase = sourceString.ToUpper();
+
+                CheckSum = sourceString.Sum(c=>c);
+            }
+        }
+
+        public class DecimalConvertibleComplexObject
+        {
+            public Decimal DecimalValue { get; set; }
+
+            public string CurrencyValue { get; set; }
+
+
+            public DecimalConvertibleComplexObject(decimal sourceDecimal)
+            {
+                DecimalValue = sourceDecimal;
+
+                CurrencyValue = sourceDecimal.ToString("C", new CultureInfo("en-us"));
+            }
+        }
+
         public interface ITestAppSettings
         {
             string SomeString { get; }
@@ -47,6 +82,11 @@ namespace NinjaSettings.Test
             TestEnum SomeTestEnum { get; }            
             
             TestFlagsEnum SomeTestFlagsEnum { get; }
+
+            List<StringConvertibleComplexObject> SomeStringContructorObjectList { get; }
+
+            List<DecimalConvertibleComplexObject> SomeDecimalContructorObjectList { get; }
+
 
         }
 
@@ -152,6 +192,33 @@ namespace NinjaSettings.Test
             var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
 
             settings.SomeStringList.ShouldBe(new List<string>(new[] { "foo", "bar","baz", "beep", "bop" }));
+        }
+
+        [Test]
+        public void GivenAStringEnumerableValueReturnsThatValueAsAComplexObjectList()
+        {
+            _fakeRepository.Get("SomeStringContructorObjectList").Returns("Foo,Bar,Baz");
+
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
+
+            settings
+                .SomeStringContructorObjectList
+                .Select(x=>x.UpperCase)
+                .ShouldBe(new List<string>(new[] { "FOO","BAR","BAZ" }));
+        }
+
+
+        [Test]
+        public void GivenADecimalEnumerableValueReturnsThatValueAsAComplexObjectList()
+        {
+            _fakeRepository.Get("SomeDecimalContructorObjectList").Returns("11.10,20.30,30.4,900,-1234.56");
+
+            var settings = new NinjaSettings<ITestAppSettings>(_fakeRepository).Settings;
+
+            settings
+                .SomeDecimalContructorObjectList
+                .Select(x => x.CurrencyValue)
+                .ShouldBe(new List<string>(new[] { "$11.10", "$20.30", "$30.40", "$900.00", "($1,234.56)" }));
         }
     }
 }

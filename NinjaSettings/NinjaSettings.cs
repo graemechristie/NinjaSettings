@@ -15,7 +15,8 @@ namespace NinjaSettings
             new DateTimeValueConverter(), 
             new EnumValueConverter(),
             new ScalarValueConverter(),
-            new CommaDelimitedScalarValueConverter()
+            new CommaDelimitedScalarValueConverter(),
+            new CommaDelimitedConstructorArgumentValueConverter() 
         };
 
         public IEnumerable<ISettingValueConverter> DefaultValueConverters
