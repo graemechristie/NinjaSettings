@@ -38,6 +38,11 @@ namespace NinjaSettings
         {
         }
 
+        public NinjaSettings(string[] args)
+            : this(new CommandLineSettingsRepository(args), null)
+        {
+        }
+
         public NinjaSettings(ISettingsRepository settingsRepository)
             : this(settingsRepository, null)
         {
@@ -74,6 +79,11 @@ namespace NinjaSettings
             }
 
             var fromValue = _settingsRepository.Get(name);
+            if (fromValue == null)
+            {
+                result = GetDefault(propInfo.PropertyType);
+                return true;
+            }
 
             var converter = _settingValueConverters.FirstOrDefault(a => a.CanConvert(propInfo.PropertyType));
             if (converter == null)
@@ -83,6 +93,11 @@ namespace NinjaSettings
             _cache.Add(name, result);
 
             return true;
+        }
+
+        protected static object GetDefault(Type type)
+        {
+            return type.IsValueType ? Activator.CreateInstance(type) : null;
         }
     }
 }
