@@ -13,9 +13,8 @@ namespace NinjaSettings.ValueConverters
                 return false;
 
             return type.GetInterfaces()
-                //GHas Generic IEnumerable Interface
-                .Where(i => i.IsGenericType
-                            && typeof (IEnumerable<>).IsAssignableFrom(i.GetGenericTypeDefinition()))
+                // Has Generic IEnumerable Interface
+                .Where(i => i.IsGenericType && typeof (IEnumerable<>).IsAssignableFrom(i.GetGenericTypeDefinition()))
                 // and the type of that interface
                 .Select(i => i.GetGenericArguments().FirstOrDefault())
                 // has a constructor
