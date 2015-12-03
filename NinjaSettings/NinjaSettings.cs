@@ -4,6 +4,7 @@ using System.Dynamic;
 using System.Linq;
 using NinjaSettings.ValueConverters;
 using ImpromptuInterface;
+using NinjaSettings.Repositories;
 
 namespace NinjaSettings
 {
@@ -51,24 +52,16 @@ namespace NinjaSettings
             IEnumerable<ISettingValueConverter> settingValueConverters)
         {
             _settingsRepository = settingsRepository;
-
             _settingValueConverters = new List<ISettingValueConverter>(settingValueConverters ?? Enumerable.Empty<ISettingValueConverter>());
 
             _settingValueConverters.AddRange(DefaultValueConverters);
         }
 
-        public TSettings Settings
-        {
-            get
-            {
-                return this.ActLike<TSettings>();
-            }
-        }
+        public TSettings Settings => this.ActLike<TSettings>();
 
         public override bool TryGetMember(GetMemberBinder binder, out object result)
         {
             var name = binder.Name;
-
             var propInfo = typeof (TSettings).GetProperty(name);
 
             if (propInfo == null)
@@ -83,12 +76,10 @@ namespace NinjaSettings
             var fromValue = _settingsRepository.Get(name);
 
             var converter = _settingValueConverters.FirstOrDefault(a => a.CanConvert(propInfo.PropertyType));
-
             if (converter == null)
-                throw new InvalidOperationException(String.Format("No Value Converter found for setting type {0}", propInfo.PropertyType.Name));
+                throw new InvalidOperationException($"No Value Converter found for setting type {propInfo.PropertyType.Name}");
 
             result = converter.Convert(fromValue, propInfo.PropertyType);
-
             _cache.Add(name, result);
 
             return true;

@@ -53,7 +53,7 @@
     <Compile Include="ValueConverters\EnumValueConverter.cs" />
     <Compile Include="ValueConverters\CommaDelimitedScalarValueConverter.cs" />
     <Compile Include="ValueConverters\ScalarValueConverter.cs" />
-    <Compile Include="WebConfigAppSettingsRepository.cs" />
+    <Compile Include="Repositories\WebConfigAppSettingsRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
