@@ -1,6 +1,6 @@
 using System.Configuration;
 
-namespace NinjaSettings
+namespace NinjaSettings.Repositories
 {
     public class WebConfigAppSettingsRepository : ISettingsRepository
     {

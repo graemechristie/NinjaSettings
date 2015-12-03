@@ -14,7 +14,7 @@ namespace NinjaSettings.ValueConverters
 
         public object Convert(string fromValue, Type convertToType)
         {
-            if (String.IsNullOrEmpty(fromValue))
+            if (string.IsNullOrEmpty(fromValue))
                 return null;
 
             // If the user has supplied multiple values (and the type is a single enum)

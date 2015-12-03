@@ -13,16 +13,15 @@ namespace NinjaSettings.ValueConverters
                 return false;
 
             return type.GetInterfaces()
-                // GHas Generic IENumerable Interface
-                .Where(i => i.IsGenericType
-                            && typeof (IEnumerable<>).IsAssignableFrom(i.GetGenericTypeDefinition()))
+                // Has Generic IEnumerable Interface
+                .Where(i => i.IsGenericType && typeof (IEnumerable<>).IsAssignableFrom(i.GetGenericTypeDefinition()))
                 // and the type of that interface
                 .Select(i => i.GetGenericArguments().FirstOrDefault())
                 // has a constructor
                 .Any(t => t != null &&
                           t.GetConstructors().Any(c =>
                               // with one argument
-                              c.GetParameters().Count() == 1
+                              c.GetParameters().Length == 1
                               // That implements IConvertible, so it can be set by calling changetype on a string value
                               && c.GetParameters()[0].ParameterType.GetInterfaces().Any(ti => ti == typeof (IConvertible))));
         }
