@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSettings", "NinjaSettings\NinjaSettings.csproj", "{B3767F91-A97B-47A4-9031-80C971C48BF2}"
 EndProject
@@ -10,28 +10,51 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSettings.Example.Autof
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NinjaSettings.Example.Autofac.Tests", "NinjaSettings.Example.Autofac.Tests\NinjaSettings.Example.Autofac.Tests.csproj", "{D69EADA1-98F8-4BB2-921B-4402C19DAFEA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{0598B90D-950B-40B9-81CE-293BC16B8E71}"
+	ProjectSection(SolutionItems) = preProject
+		NinjaSettings.nuspec = NinjaSettings.nuspec
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug-Net40|Any CPU = Debug-Net40|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Release-Net40|Any CPU = Release-Net40|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B3767F91-A97B-47A4-9031-80C971C48BF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B3767F91-A97B-47A4-9031-80C971C48BF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3767F91-A97B-47A4-9031-80C971C48BF2}.Debug-Net40|Any CPU.ActiveCfg = Debug-Net40|Any CPU
+		{B3767F91-A97B-47A4-9031-80C971C48BF2}.Debug-Net40|Any CPU.Build.0 = Debug-Net40|Any CPU
 		{B3767F91-A97B-47A4-9031-80C971C48BF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3767F91-A97B-47A4-9031-80C971C48BF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3767F91-A97B-47A4-9031-80C971C48BF2}.Release-Net40|Any CPU.ActiveCfg = Release-Net40|Any CPU
+		{B3767F91-A97B-47A4-9031-80C971C48BF2}.Release-Net40|Any CPU.Build.0 = Release-Net40|Any CPU
 		{33E6ADA8-164A-4634-9853-F4B913D9949B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33E6ADA8-164A-4634-9853-F4B913D9949B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33E6ADA8-164A-4634-9853-F4B913D9949B}.Debug-Net40|Any CPU.ActiveCfg = Debug-Net40|Any CPU
+		{33E6ADA8-164A-4634-9853-F4B913D9949B}.Debug-Net40|Any CPU.Build.0 = Debug-Net40|Any CPU
 		{33E6ADA8-164A-4634-9853-F4B913D9949B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33E6ADA8-164A-4634-9853-F4B913D9949B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33E6ADA8-164A-4634-9853-F4B913D9949B}.Release-Net40|Any CPU.ActiveCfg = Release-Net40|Any CPU
+		{33E6ADA8-164A-4634-9853-F4B913D9949B}.Release-Net40|Any CPU.Build.0 = Release-Net40|Any CPU
 		{A10F0DA9-9D4E-4612-9400-90A3150275EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A10F0DA9-9D4E-4612-9400-90A3150275EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A10F0DA9-9D4E-4612-9400-90A3150275EE}.Debug-Net40|Any CPU.ActiveCfg = Debug-Net40|Any CPU
+		{A10F0DA9-9D4E-4612-9400-90A3150275EE}.Debug-Net40|Any CPU.Build.0 = Debug-Net40|Any CPU
 		{A10F0DA9-9D4E-4612-9400-90A3150275EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A10F0DA9-9D4E-4612-9400-90A3150275EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A10F0DA9-9D4E-4612-9400-90A3150275EE}.Release-Net40|Any CPU.ActiveCfg = Release-Net40|Any CPU
+		{A10F0DA9-9D4E-4612-9400-90A3150275EE}.Release-Net40|Any CPU.Build.0 = Release-Net40|Any CPU
 		{D69EADA1-98F8-4BB2-921B-4402C19DAFEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D69EADA1-98F8-4BB2-921B-4402C19DAFEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D69EADA1-98F8-4BB2-921B-4402C19DAFEA}.Debug-Net40|Any CPU.ActiveCfg = Debug-Net40|Any CPU
+		{D69EADA1-98F8-4BB2-921B-4402C19DAFEA}.Debug-Net40|Any CPU.Build.0 = Debug-Net40|Any CPU
 		{D69EADA1-98F8-4BB2-921B-4402C19DAFEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D69EADA1-98F8-4BB2-921B-4402C19DAFEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D69EADA1-98F8-4BB2-921B-4402C19DAFEA}.Release-Net40|Any CPU.ActiveCfg = Release-Net40|Any CPU
+		{D69EADA1-98F8-4BB2-921B-4402C19DAFEA}.Release-Net40|Any CPU.Build.0 = Release-Net40|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

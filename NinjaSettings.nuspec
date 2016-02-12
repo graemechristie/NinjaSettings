@@ -5,7 +5,7 @@
        NinjaSettings
     </id>
     <version>
-       1.0.0.3
+       1.0.0.4
     </version>
     <authors>
        Graeme Christie
@@ -30,8 +30,10 @@
     </dependencies>
   </metadata>
   <files>
-     <file src="NinjaSettings\bin\Release\NinjaSettings.dll" target="lib\NET40" />
-     <file src="NinjaSettings\bin\Release\NinjaSettings.pdb" target="lib\NET40" />
+     <file src="NinjaSettings\bin\Release\NinjaSettings.dll" target="lib\net45" />
+     <file src="NinjaSettings\bin\Release\NinjaSettings.pdb" target="lib\net45" />
+     <file src="NinjaSettings\bin\Release-Net40\NinjaSettings.dll" target="lib\net40" />
+     <file src="NinjaSettings\bin\Release-Net40\NinjaSettings.pdb" target="lib\net40" />
      <file src="NinjaSettings\readme.txt" target="" />
   </files>
 </package>
